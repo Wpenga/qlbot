@@ -366,7 +366,7 @@ def qlcron(fun, crondata, token):
                 'command': crondata['command'],
                 'schedule': crondata['schedule']
             }
-            res = requests.post(url, data=data, headers=headers).json()
+            res = requests.post(url, json=[data], headers=headers).json()
         elif fun == 'run':
             data = [crondata['_id']]
             # crondata 格式：命令id
